@@ -1,3 +1,4 @@
+const fs = require('fs')
 var inquirer = require('inquirer');
 inquirer
   .prompt([
@@ -35,7 +36,7 @@ inquirer
   ])
   .then((answers) => {
     console.log(answers)
-    fs.writeFile("user.json",JSON.stringify(answers),(err,data)=>{
+    fs.writeFile('test.html',JSON.stringify(answers),(err,data)=>{
         if(err){
             throw err
         }
