@@ -1,15 +1,43 @@
 var inquirer = require('inquirer');
 inquirer
   .prompt([
-    /* Pass your questions in here */
+    {
+      type: 'input',
+      message: 'Hello! What is your name?',
+      name: 'userName'
+
+    },
+    {
+      type: 'input',
+      message: 'Where do you live?',
+      name: 'location',
+    
+    },
+    {
+      type: 'input',
+      message: 'What would you like to say in your bio?',
+      name: 'bio',
+
+    },
+    {
+      type: 'input',
+      message: 'What is your LinkedIn Url?',
+      name: 'linkedIn',
+
+    },
+    {
+      type: 'input',
+      message: 'What is your GitHub Url?',
+      name: 'gitHub',
+
+    },
+  
   ])
   .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
+    console.log(answers)
+    fs.writeFile("user.json",JSON.stringify(answers),(err,data)=>{
+        if(err){
+            throw err
+        }
+    })
   });
